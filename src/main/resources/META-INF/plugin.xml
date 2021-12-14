@@ -15,4 +15,10 @@
         <listener class="com.github.tinaan.gvigor.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <actions>
+        <action id="ShowSelectedElement" class="ShowSelectedElement" text="ShowSelectedElement"
+                description="ShowSelectedElement">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

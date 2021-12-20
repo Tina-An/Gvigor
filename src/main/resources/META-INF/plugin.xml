@@ -15,4 +15,16 @@
         <listener class="com.github.tinaan.gvigor.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <actions>
+        <action id="ShowSelectedElement" class="ShowSelectedElement" text="Show Selected Element"
+                icon="/icons/showIcon.svg"
+                description="Show Selected Element">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+        <action id="com.huawei.adt.HelloWorld" class="HelloWorld" text="Hello World"
+                icon="/icons/showIcon.svg"
+                description="Hello World">
+            <add-to-group group-id="BuildMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

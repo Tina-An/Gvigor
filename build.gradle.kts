@@ -1,6 +1,23 @@
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    repositories {
+        maven {
+            url = uri("http://artifactory.cde.huawei.com/artifactory/maven-public/")
+            isAllowInsecureProtocol = true
+        }
+        maven {
+            url = uri("http://artifactory.cde.huawei.com/artifactory/jetbrains-public/")
+            isAllowInsecureProtocol = true
+        }
+        maven {
+            url = uri("http://artifactory.cde.huawei.com/artifactory/intellij-dependencies")
+            isAllowInsecureProtocol = true
+        }
+    }
+}
+
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
@@ -20,10 +37,23 @@ group = properties("pluginGroup")
 version = properties("pluginVersion")
 
 // Configure project's dependencies
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenLocal()
+        maven {
+            url = uri("http://artifactory.cde.huawei.com/artifactory/maven-public/")
+            isAllowInsecureProtocol = true
+        }
+        maven {
+            url = uri("http://artifactory.cde.huawei.com/artifactory/jetbrains-public/")
+            isAllowInsecureProtocol = true
+        }
+        maven {
+            url = uri("http://artifactory.cde.huawei.com/artifactory/intellij-dependencies")
+            isAllowInsecureProtocol = true
+        }
+    }
 }
-
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
     pluginName.set(properties("pluginName"))
